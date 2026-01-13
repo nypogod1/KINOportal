@@ -1,1 +1,929 @@
+/* Базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #141414;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            
+        }
+        
+        /* Шапка */
+        header {
+            background: #000000;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #3b3b3b;
+        }
+        .logo2{
+            color: #ff000d;
+            text-align: center;
+            transition: color 0.3s ease;
+            font-size: 19px;
+        }
 
+        .logo2:hover {
+            color: #ffffff;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            color: #ff000d;    
+        }
+        
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #ff000d;
+            background: linear-gradient(270deg, #47434300 0%, #994b4b 100%);
+            border-radius: 70px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #869964;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-bar input {
+            background: #333;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            color: #fff;
+            width: 200px;
+        }
+        
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .user-actions a,
+        .user-actions button {
+            margin-left: 15px;
+            background: none;
+            border: none;
+            color: #ff000d;
+            cursor: pointer;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .user-actions button:hover,
+        .user-actions a:hover {
+            color: #ffffff;
+        }
+        
+        .user-info {
+            color: #ff000d;
+            font-size: 16px;
+        }
+        
+        /* Модальные окна для входа и регистрации */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: #b3a7a7;
+            padding: 40px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 20px rgba(229, 9, 20, 0.3);
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .modal-header h2 {
+            color: #ff000d;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 20px;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: #ff000d;
+        }
+        
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .modal-form .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .modal-form label {
+            color: #ffffff;
+            font-size: 14px;
+        }
+        
+        .modal-form input {
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            background: #2a2a2a;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .modal-form input:focus {
+            outline: none;
+            border-color: #ff000d;
+        }
+        
+        .modal-form button {
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        
+        .modal-form button:hover {
+            background: #b2070f;
+        }
+        
+        .modal-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        .modal-footer a {
+            color: #ff000d;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .modal-footer a:hover {
+            color: #ffffff;
+        }
+        
+        .error-message {
+            color: #ff000d;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .error-message.active {
+            display: block;
+        }
+        
+        /* Герой-секция с каруселью */
+        .carousel-container {
+            
+            position: relative;
+            width: 100%;
+            margin-bottom: 40px;
+            padding: 0 20px;
+            overflow: visible;
+        }
+
+        .carousel-slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        /* Стили для горизонтальной карусели с несколькими карточками */
+        .carousel-slides {
+            display: flex;
+            gap: 24px;/*//////////////////////////////////////////////////////////////////////////////*/
+            position: relative;
+        }
+
+        .carousel-slide.multi {
+            position: relative;
+            flex: 1;
+            min-width: 0;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            /* Улучшенное качество изображений */
+            image-rendering: -webkit-optimize-contrast;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding: 0 20px;
+            margin-left: 50px;
+            
+        }
+
+        /* Стили для текста поверх изображений (без фона) */
+        .carousel-slide.multi .hero-content {
+            width: 100%;
+            padding: 30px 24px 20px 24px;
+            margin-left: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .carousel-slide.multi .hero-content h1 {
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 
+                         0 0 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 4px;
+            margin-top: 0;
+        }
+
+        .carousel-slide.multi .hero-content p {
+            color: #ffffff;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8), 
+                         0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 4px;
+            margin-top: 0;
+        }
+
+        /* Легкий затемняющий градиент снизу для лучшей читаемости текста */
+        .carousel-slide.multi::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* Индикаторы карусели !!!!!!!УБРАЛИ!!!!!! */
+        #carouselIndicators {
+            display: none !important;
+        }
+
+        /*.carousel-indicators {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 60px;
+            z-index: 3;
+        }*/
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-indicator.active {
+            background: #e50914;
+        }
+
+        /* Стрелки навигации */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(163, 154, 154, 0.123);
+            color: white;
+            border: none;
+            font-size: 30px;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.3s, background 0.3s;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(179, 5, 5, 0.486);
+        }
+
+        
+
+        .carousel-arrow.prev {
+            left: 20px;
+        }
+
+        .carousel-arrow.next {
+            right: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #e50914;
+            color: #fff;
+            padding: 1px 16px;
+            border-radius: 40px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #b2070f;
+        }
+        
+        /* Секции с контентом */
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .see-all {
+            color: #e50914;
+            font-size: 14px;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .content-item {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .content-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .content-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .content-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(230, 74, 74, 0.8));
+            padding: 15px;
+        }
+        
+        .content-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .content-meta {
+            font-size: 12px;
+            color: #aaa;
+        }
+        .PodpiskaTXT {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+            
+            font-size: 24px;
+            font-style: italic;
+            font-weight: bold;
+            text-align: left;
+            z-index: 10;
+            max-width: 50%;
+
+        }
+
+        .PodpiskaTXT a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            display: block;
+        }
+        /* Подвал */
+        footer {
+            background: #000000;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+
+        }
+        
+        .footer-column h3 {
+    font-size: 25px;
+    margin-bottom: 2px;
+    color: #cc2c37;
+    text-align: center;
+}
+
+.footer-column ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ffffff;
+    font-size: 20px;
+    transition: color 0.7s;
+    font-weight: bold;
+}
+
+.footer-column ul li a:hover {
+    color: #ff0000;
+}
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Админ панель */
+        .admin-panel {
+            background: #1a1a1a00;
+            padding: 30px;
+            border-radius: 8px;
+            
+            display: none;
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        .admin-form {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .admin-btn {
+            background: #e50914;
+            color: rgb(255, 255, 255);
+            
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            
+            margin-bottom: 30px;
+        }
+        .btn1 {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff000d 10%, #ff6a00 90%);
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            padding: 8px 26px;
+            border-radius: 32px;
+            border: none;
+            box-shadow: 0 3px 12px 0 rgba(255, 0, 0, 0.18), 0 1.5px 4px 0 rgba(0,0,0,0.12);
+            transition: transform 0.16s cubic-bezier(.47,1.64,.41,.8), box-shadow 0.2s, background 0.3s;
+            text-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+            cursor: pointer;
+            margin-top: 4px;
+        }
+        
+        
+        .admin-btn:hover {
+            background: #b2070f;
+        }
+
+        .admin-btn.secondary {
+            background: #333;
+        }
+
+        .admin-btn.secondary:hover {
+            background: #555;
+        }
+
+        .movies-list {
+            margin-top: 30px;
+        }
+
+        .movie-item {
+            background: #2a2a2a;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .movie-info p{
+            white-space: normal; 
+            max-width: 100%;
+        }
+        .movie-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .movie-actions button {
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* !!!!!!!!!!!!!!!!!!!!!!!!!Стили для подписки !!!!!!!!!!!!!!!!!!!!!!!!!!*/
+        section:has(.Podpiska) {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            padding: 0;
+        }
+
+        .Podpiska {
+            width: 100%;
+            margin: 40px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .Podpiska img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-width: 100%;
+        }
+
+        /* Адаптивность для планшетов */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .carousel-container {
+                padding: 0 20px;
+            }
+
+            .carousel-slide.multi {
+                height: 450px;
+                min-height: 450px;
+            }
+
+            .carousel-slide.multi .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .carousel-slide.multi .hero-content p {
+                font-size: 15px;
+            }
+
+            .PodpiskaTXT {
+                font-size: 20px;
+                left: 4%;
+                max-width: 55%;
+            }
+        }
+
+        /* Оптимизация для больших экранов (ПК) */
+        @media (min-width: 1200px) {
+            .carousel-container {
+                max-width: 1400px;
+                margin: 0 auto 40px;
+                padding: 0 20px;
+            }
+
+            .carousel-slide.multi {
+                height: 550px;
+                min-height: 550px;
+            }
+
+            .carousel-slides {
+                gap: 30px;
+            }
+
+            .PodpiskaTXT {
+                font-size: 28px;
+                left: 6%;
+                max-width: 45%;
+            }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px 5px 0;
+            }
+            
+            .search-bar {
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            .search-bar input {
+                width: 100%;
+            }
+
+            .carousel-container {
+                height: auto;
+                padding: 0 15px;
+            }
+
+            /* Адаптивность для горизонтальной карусели на мобильных */
+            .carousel-slides {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .carousel-slide.multi {
+                width: 100%;
+                height: 350px;
+                min-height: 350px;
+                flex: none;
+                border-radius: 16px;
+            }
+
+            .carousel-slide.multi .hero-content {
+                padding: 20px 16px;
+            }
+
+            .carousel-slide.multi .hero-content h1 {
+                font-size: 24px;
+            }
+
+            .carousel-slide.multi .hero-content p {
+                font-size: 14px;
+            }
+
+            .hero-content {
+                margin-left: 50px;
+                padding: 0 50px;
+                padding-top: 125px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            /* Скрываем стрелки навигации для горизонтальной карусели на мобильных */
+            .carousel-arrow {
+                display: none;
+            }
+
+            .carousel-indicators {
+                bottom: 15px;
+            }
+            
+            .content-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            .Podpiska {
+                margin: 30px 0;
+            }
+
+            .PodpiskaTXT {
+                font-size: 16px;
+                left: 3%;
+                max-width: 70%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        /* Адаптивность для очень маленьких экранов */
+        @media (max-width: 480px) {
+            .carousel-container {
+                padding: 0 10px;
+            }
+
+            .carousel-slides {
+                gap: 12px;
+            }
+
+            .carousel-slide.multi {
+                height: 300px;
+                min-height: 300px;
+                border-radius: 12px;
+            }
+
+            .carousel-slide.multi .hero-content {
+                padding: 16px 12px;
+            }
+
+            .carousel-slide.multi .hero-content h1 {
+                font-size: 20px;
+                margin-bottom: 4px;
+            }
+
+            .carousel-slide.multi .hero-content p {
+                font-size: 12px;
+                margin-bottom: 6px;
+            }
+
+            /* Уменьшаем градиент для маленьких экранов */
+            .carousel-slide.multi::after {
+                height: 70%;
+            }
+
+            .PodpiskaTXT {
+                font-size: 14px;
+                left: 2%;
+                max-width: 80%;
+                line-height: 1.4;
+            }
+        }
+
+        /* Улучшение качества изображений для Retina дисплеев */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .carousel-slide.multi {
+                background-size: cover;
+                background-position: center center;
+            }
+        }
+
+        /* Оптимизация для горизонтальной ориентации на мобильных */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .carousel-slide.multi {
+                height: 300px;
+                min-height: 300px;
+            }
+        }
